@@ -1,0 +1,54 @@
+<template lang="pug">
+.page-4
+  img.so.so-0(src="@|97.png|" o-tap="location.replace('')")
+  img.so.so-1(src="@|98.png|" o-tap="this.query('.shild').style.display = 'block'")
+  img.so.so-2(src="@|93.png|" o-animation="flicker")
+  img.so.so-3(src="@|42.png|")
+  img.so.so-4(src="@|88.png|")
+  img.so.so-5(src="@|90.jpg|")
+  .shild
+    img.so.so-1-0(src="@|23.png|" o-tap="this.query('.shild').style.display = 'none'")
+    img.so.so-1-1(src="@|22.png|")
+</template>
+
+<script>
+  module.exports = {
+    created: function () {
+
+    }
+  }
+</script>
+
+
+<style lang="less">
+.so {position: absolute;}
+.so-0 {left: 83px;top: 1266px;z-index: 5}
+.so-1 {left: 463px;top: 1263px;z-index: 4}
+.so-2 {left: 261px;top: 1211px;z-index: 3}
+.so-3 {left: 85px;top: 162px;z-index: 2}
+.so-4 {left: 64px;top: 156px;z-index: 1}
+.so-5 {left: 0px;top: 0px;z-index: 0}
+.so-1-0 {
+  left: 0;
+  top: 60%;
+  z-index: 1;
+  right: 0;
+  margin: auto;
+}
+.shild {
+  display: none;
+}
+.so-1-1 {
+  right: 0;
+  top: 7%;
+  z-index: 0;
+}
+.shild {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+</style>

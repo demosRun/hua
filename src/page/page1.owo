@@ -1,0 +1,23 @@
+<template lang="pug">
+.page-1
+  img.so.so-0#page1Text(src="@|58.png|")
+  img.so.so-1(src="@|59.png|" go="page2////true")
+  img.so.so-2(src="@|62.jpg|")
+</template>
+
+<script>
+  module.exports = {
+    created: function () {
+      owo.animate('fadeIn', owo.id.page1Text, 800)
+      owo.animate('fadeIn', this.query('.so-1'), 1400)
+    }
+  }
+</script>
+
+
+<style lang="less">
+.so {position: absolute;}
+.so-0 {left: 164px;top: 807px;z-index: 2}
+.so-1 {left: 295px;top: 1116px;z-index: 3}
+.so-2 {left: 0px;top: 0px;z-index: 0}
+</style>

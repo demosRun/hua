@@ -1,0 +1,92 @@
+<template lang="pug">
+.page-3
+  img.so.so-0(src="@|242.png|" o-animation="turn")
+  img.so.so-1(src="@|243.png|" o-tap="check2(3)")
+  img.so.so-2(src="@|245.png|" o-tap="check2(2)")
+  img.so.so-3(src="@|247.png|" o-tap="check2(1)")
+  img.so.so-4(src="@|246.png|" o-tap="check2(6)")
+  img.so.so-5(src="@|254.png|" o-tap="check2(5)")
+  img.so.so-6(src="@|229.png|" o-tap="check2(4)")
+  img.so.so-7(src="@|256.png|")
+  img.so.so-8.line.line-5(src="@|155.png|")
+  img.so.so-9.line.line-2(src="@|154.png|")
+  img.so.so-10.line.line-3(src="@|153.png|")
+  img.so.so-11.line.line-4(src="@|152.png|")
+  img.so.so-12.line.line-1(src="@|228.png|")
+  img.so.so-13.line.line-6(src="@|227.png|")
+  img.so.so-14.flo(src="@|218.png|" o-tap="check(1)")
+  img.so.so-15.flo(src="@|216.png|" o-tap="check(2)")
+  img.so.so-16.flo(src="@|217.png|" o-tap="check(3)")
+  img.so.so-17.flo(src="@|219.png|" o-tap="check(4)")
+  img.so.so-18.flo(src="@|220.png|" o-tap="check(5)")
+  img.so.so-19.flo(src="@|221.png|" o-tap="check(6)")
+  img.so.so-20(src="@|224.jpg|")
+</template>
+
+<script>
+  module.exports = {
+    data: {
+      checkIndex: 0,
+      okNumber: 0
+    },
+    created: function () {
+      owo.tool.toast('请用线连出花对应的文字!')
+    },
+    check: function (ind) {
+      this.data.checkIndex = parseInt(ind)
+      this.queryAll('.flo').forEach(element => {
+        element.classList.remove('active')
+      });
+      this.$target.classList.add('active')
+    },
+    check2: function (ind) {
+      if (this.data.checkIndex === parseInt(ind)) {
+        this.data.okNumber++
+        this.query('.line-' + ind).classList.add('ok')
+      } else {
+        owo.tool.toast('选择错误哦，请再试试!')
+      }
+      if (this.data.okNumber >= 6) {
+        owo.go({
+          page: 'page4',
+          noBack: true
+        })
+      }
+    }
+  }
+</script>
+
+
+<style lang="less">
+.so {position: absolute;}
+.so-0 {left: 600px;top: 151px;z-index: 20}
+.so-1 {left: 411px;top: 304px;z-index: 19}
+.so-2 {left: 411px;top: 467px;z-index: 18}
+.so-3 {left: 389px;top: 625px;z-index: 17; z-index: 1;}
+.so-4 {left: 411px;top: 782px;z-index: 16}
+.so-5 {left: 411px;top: 1097px;z-index: 15}
+.so-6 {left: 411px;top: 940px;z-index: 14}
+.so-7 {left: 65px;top: 177px;z-index: 13}
+.so-8 {left: 250px;top: 1044px;z-index: 12}
+.so-9 {left: 252px;top: 408px;z-index: 11}
+.so-10 {left: 250px;top: 384px;z-index: 10}
+.so-11 {left: 250px;top: 877px;z-index: 9}
+.so-12 {left: 251px;top: 699px;z-index: 8}
+.so-13 {left: 244px;top: 850px;z-index: 7}
+.so-14 {left: 131px;top: 641px;z-index: 6}
+.so-15 {left: 139px;top: 338px;z-index: 5}
+.so-16 {left: 134px;top: 488px;z-index: 4}
+.so-17 {left: 139px;top: 801px;z-index: 3}
+.so-18 {left: 138px;top: 952px;z-index: 2}
+.so-19 {left: 137px;top: 1110px;z-index: 1}
+.so-20 {left: 0px;top: 0px;z-index: 0}
+.line {
+  opacity: 0;
+}
+.line.ok {
+  opacity: 1;
+}
+.active {
+  transform: scale(1.2);
+}
+</style>
